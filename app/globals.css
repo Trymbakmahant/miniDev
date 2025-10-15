@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7fafc;
+  --foreground: #1a202c;
+  --primary: #fe6c11;
+  --secondary: #d76cef;
+  --text-primary: #1a202c;
+  --text-secondary: #718096;
+  --background-light: #f7fafc;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-background-light: var(--background-light);
+  --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pixel-lightning {
+  background: linear-gradient(
+    45deg,
+    var(--accent) 0%,
+    #ff6b9d 50%,
+    var(--accent) 100%
+  );
+  background-size: 4px 4px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.rounded-xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-2xl {
+  border-radius: 2rem;
+}
+
+.rounded-3xl {
+  border-radius: 3rem;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 3s ease-in-out;
+}
+
+/* GSAP animations will handle these effects */
+
+/* Ensure sections are visible by default */
+.how-it-works-content,
+.how-it-works-title,
+.how-it-works-cards,
+.leaderboard-content,
+.leaderboard-title,
+.leaderboard-table,
+.table-row,
+.footer {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
 }
