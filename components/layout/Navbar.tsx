@@ -5,7 +5,7 @@ import { AnimatedButton } from "../ui/AnimatedButton";
 export const Navbar: React.FC = () => {
   return (
     <header className="navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-center px-4 py-4 md:px-10 lg:px-20 xl:px-40">
-      <div className="flex items-center justify-between whitespace-nowrap bg-white/95 backdrop-blur-sm border-2 border-cyan-400/70 shadow-lg rounded-full px-6 py-3 w-full max-w-6xl">
+      <div className="flex items-center justify-between whitespace-nowrap bg-white/98 backdrop-blur-md border-2 border-cyan-400/80 shadow-2xl rounded-full px-8 py-4 w-full max-w-6xl">
         <div className="flex items-center gap-4 text-text-primary">
           <div className="size-8 text-primary">
             <svg

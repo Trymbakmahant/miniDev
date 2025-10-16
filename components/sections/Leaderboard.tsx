@@ -63,175 +63,164 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ limit = 3 }) => {
       className="relative flex flex-col items-center justify-center h-screen px-4 md:px-10 lg:px-20 xl:px-40 overflow-hidden"
       aria-labelledby="leaderboard-heading"
     >
-      {/* Dithercore Background */}
-      <div className="absolute inset-0 bg-white/95 mx-8 my-16 border-2 border-pink-400/70 shadow-lg">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-100/30 via-cyan-100/30 to-purple-100/30"></div>
-        <div
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `
-            linear-gradient(30deg, transparent 25%, rgba(255,0,255,0.1) 25%, rgba(255,0,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,0,255,0.1) 75%),
-            linear-gradient(-30deg, transparent 25%, rgba(0,255,255,0.1) 25%, rgba(0,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(0,255,255,0.1) 75%)
-          `,
-            backgroundSize: "25px 25px",
-          }}
-        ></div>
-        <div className="absolute top-4 left-4 text-pink-600 font-mono text-xs tracking-wider font-semibold">
+      {/* Pill Container */}
+      <div className="relative bg-white/98 backdrop-blur-md border-2 border-pink-400/80 shadow-2xl rounded-[80px] p-16 w-full max-w-6xl mx-4">
+        <div className="absolute top-6 left-10 text-pink-600 font-mono text-sm tracking-wider font-bold">
           &gt; SCANNING LEADERBOARD...
         </div>
-        <div className="absolute top-4 right-4 text-cyan-600 font-mono text-xs tracking-wider font-semibold">
+        <div className="absolute top-6 right-10 text-cyan-600 font-mono text-sm tracking-wider font-bold">
           DATA_SYNC ✓
         </div>
-        <div className="absolute bottom-4 left-4 text-purple-600 font-mono text-xs tracking-wider font-semibold">
+        <div className="absolute bottom-6 left-10 text-purple-600 font-mono text-sm tracking-wider font-bold">
           RANKING_ENGINE v2.0
         </div>
-        <div className="absolute bottom-4 right-4 text-green-600 font-mono text-xs tracking-wider font-semibold">
+        <div className="absolute bottom-6 right-10 text-green-600 font-mono text-sm tracking-wider font-bold">
           LIVE_UPDATE ✓
         </div>
-      </div>
-      <div className="leaderboard-float absolute -right-60 top-1/2 -translate-y-1/2 text-secondary/10 text-[40rem] leading-none material-symbols-outlined transform rotate-45">
-        leaderboard
-      </div>
-      <div className="leaderboard-content z-10 flex flex-col gap-8 w-full max-w-[960px]">
-        <div className="flex flex-col gap-2 text-center">
-          <h2
-            id="leaderboard-heading"
-            className="leaderboard-title text-text-primary text-5xl font-bold leading-tight tracking-[-0.015em] md:text-6xl font-display"
-          >
-            Leaderboard
-          </h2>
-          <p className="text-text-secondary text-lg font-normal leading-normal font-display">
-            Discover the most popular miniapps and their creators on Farcaster.
-          </p>
-        </div>
-        <div className="leaderboard-table border border-gray-200 rounded-[50px] bg-white/50 backdrop-blur-sm overflow-hidden">
-          <div className="flex border-b border-gray-200">
-            <button
-              className={`px-4 py-2 text-sm font-medium border-b-2 ${
-                activeTab === "today"
-                  ? "border-primary text-primary"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-              onClick={() => setActiveTab("today")}
+        <div className="leaderboard-content z-10 flex flex-col gap-8 w-full">
+          <div className="flex flex-col gap-2 text-center">
+            <h2
+              id="leaderboard-heading"
+              className="leaderboard-title text-text-primary text-5xl font-bold leading-tight tracking-[-0.015em] md:text-6xl font-display"
             >
-              Today
-            </button>
-            <button
-              className={`px-4 py-2 text-sm font-medium border-b-2 ${
-                activeTab === "week"
-                  ? "border-primary text-primary"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-              onClick={() => setActiveTab("week")}
-            >
-              This Week
-            </button>
-            <button
-              className={`px-4 py-2 text-sm font-medium border-b-2 ${
-                activeTab === "alltime"
-                  ? "border-primary text-primary"
-                  : "text-text-secondary hover:text-text-primary"
-              }`}
-              onClick={() => setActiveTab("alltime")}
-            >
-              All-time
-            </button>
+              Leaderboard
+            </h2>
+            <p className="text-text-secondary text-lg font-normal leading-normal font-display">
+              Discover the most popular miniapps and their creators on
+              Farcaster.
+            </p>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead className="bg-background-light/50">
-                <tr>
-                  <th className="p-4 text-sm font-bold text-text-primary">#</th>
-                  <th className="p-4 text-sm font-bold text-text-primary">
-                    Miniapp
-                  </th>
-                  <th className="p-4 text-sm font-bold text-text-primary hidden md:table-cell">
-                    Creator
-                  </th>
-                  <th className="p-4 text-sm font-bold text-text-primary text-right hidden md:table-cell">
-                    24h Volume
-                  </th>
-                  <th className="p-4 text-sm font-bold text-text-primary text-right hidden md:table-cell">
-                    MINI Earned
-                  </th>
-                  <th className="p-4 text-sm font-bold text-text-primary text-right md:hidden">
-                    Details
-                  </th>
-                  <th className="p-4 text-sm font-bold text-text-primary text-center">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {apps.slice(0, limit).map((app, index) => (
-                  <tr
-                    key={index}
-                    className="table-row border-b border-gray-200"
-                  >
-                    <td className="p-4 font-medium text-text-primary">
-                      {app.rank}
-                    </td>
-                    <td className="p-4">
-                      <div className="flex items-center gap-3">
-                        <Image
-                          alt={app.name}
-                          className="w-8 h-8 rounded-md"
-                          src={app.avatar}
-                          width={32}
-                          height={32}
-                        />
-                        <div className="md:hidden">
-                          <p className="font-bold text-text-primary">
+          <div className="leaderboard-table border border-gray-200 rounded-[50px] bg-white/50 backdrop-blur-sm overflow-hidden">
+            <div className="flex border-b border-gray-200">
+              <button
+                className={`px-4 py-2 text-sm font-medium border-b-2 ${
+                  activeTab === "today"
+                    ? "border-primary text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+                onClick={() => setActiveTab("today")}
+              >
+                Today
+              </button>
+              <button
+                className={`px-4 py-2 text-sm font-medium border-b-2 ${
+                  activeTab === "week"
+                    ? "border-primary text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+                onClick={() => setActiveTab("week")}
+              >
+                This Week
+              </button>
+              <button
+                className={`px-4 py-2 text-sm font-medium border-b-2 ${
+                  activeTab === "alltime"
+                    ? "border-primary text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+                onClick={() => setActiveTab("alltime")}
+              >
+                All-time
+              </button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left">
+                <thead className="bg-background-light/50">
+                  <tr>
+                    <th className="p-4 text-sm font-bold text-text-primary">
+                      #
+                    </th>
+                    <th className="p-4 text-sm font-bold text-text-primary">
+                      Miniapp
+                    </th>
+                    <th className="p-4 text-sm font-bold text-text-primary hidden md:table-cell">
+                      Creator
+                    </th>
+                    <th className="p-4 text-sm font-bold text-text-primary text-right hidden md:table-cell">
+                      24h Volume
+                    </th>
+                    <th className="p-4 text-sm font-bold text-text-primary text-right hidden md:table-cell">
+                      MINI Earned
+                    </th>
+                    <th className="p-4 text-sm font-bold text-text-primary text-right md:hidden">
+                      Details
+                    </th>
+                    <th className="p-4 text-sm font-bold text-text-primary text-center">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {apps.slice(0, limit).map((app, index) => (
+                    <tr
+                      key={index}
+                      className="table-row border-b border-gray-200"
+                    >
+                      <td className="p-4 font-medium text-text-primary">
+                        {app.rank}
+                      </td>
+                      <td className="p-4">
+                        <div className="flex items-center gap-3">
+                          <Image
+                            alt={app.name}
+                            className="w-8 h-8 rounded-md"
+                            src={app.avatar}
+                            width={32}
+                            height={32}
+                          />
+                          <div className="md:hidden">
+                            <p className="font-bold text-text-primary">
+                              {app.name}
+                            </p>
+                            <p className="text-sm text-text-secondary">
+                              {app.creator}
+                            </p>
+                          </div>
+                          <p className="hidden md:block font-bold text-text-primary">
                             {app.name}
                           </p>
-                          <p className="text-sm text-text-secondary">
-                            {app.creator}
-                          </p>
                         </div>
-                        <p className="hidden md:block font-bold text-text-primary">
-                          {app.name}
-                        </p>
-                      </div>
-                    </td>
-                    <td className="p-4 text-text-secondary hidden md:table-cell">
-                      {app.creator}
-                    </td>
-                    <td className="p-4 text-text-primary font-medium text-right hidden md:table-cell">
-                      {app.volume24h}
-                    </td>
-                    <td className="p-4 text-primary font-medium text-right hidden md:table-cell">
-                      {app.miniEarned}
-                    </td>
-                    <td className="p-4 text-right md:hidden">
-                      <div className="flex flex-col">
-                        <span className="font-medium text-text-primary">
-                          {app.volume24h}
-                        </span>
-                        <span className="text-xs text-text-secondary">
-                          Volume
-                        </span>
-                      </div>
-                    </td>
-                    <td className="p-4 text-center">
-                      <div className="flex justify-center gap-2">
-                        <a
-                          className="px-3 py-1.5 text-sm font-medium text-primary rounded-md bg-primary/10 hover:bg-primary/20"
-                          href="#"
-                        >
-                          Try
-                        </a>
-                        <AnimatedButton
-                          className="px-3 py-1.5 text-sm font-medium text-white rounded-md bg-secondary hover:bg-secondary/90"
-                          onClick={showToast}
-                        >
-                          Buy
-                        </AnimatedButton>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      </td>
+                      <td className="p-4 text-text-secondary hidden md:table-cell">
+                        {app.creator}
+                      </td>
+                      <td className="p-4 text-text-primary font-medium text-right hidden md:table-cell">
+                        {app.volume24h}
+                      </td>
+                      <td className="p-4 text-primary font-medium text-right hidden md:table-cell">
+                        {app.miniEarned}
+                      </td>
+                      <td className="p-4 text-right md:hidden">
+                        <div className="flex flex-col">
+                          <span className="font-medium text-text-primary">
+                            {app.volume24h}
+                          </span>
+                          <span className="text-xs text-text-secondary">
+                            Volume
+                          </span>
+                        </div>
+                      </td>
+                      <td className="p-4 text-center">
+                        <div className="flex justify-center gap-2">
+                          <a
+                            className="px-3 py-1.5 text-sm font-medium text-primary rounded-md bg-primary/10 hover:bg-primary/20"
+                            href="#"
+                          >
+                            Try
+                          </a>
+                          <AnimatedButton
+                            className="px-3 py-1.5 text-sm font-medium text-white rounded-md bg-secondary hover:bg-secondary/90"
+                            onClick={showToast}
+                          >
+                            Buy
+                          </AnimatedButton>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
       role="contentinfo"
     >
       <div className="flex items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/95 backdrop-blur-sm border-2 border-purple-400/70 shadow-lg rounded-full px-8 py-4 w-full max-w-6xl">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/98 backdrop-blur-md border-2 border-purple-400/80 shadow-2xl rounded-full px-10 py-6 w-full max-w-6xl">
           <p className="text-text-secondary text-sm font-display">
             Building the future with miniDev.
           </p>

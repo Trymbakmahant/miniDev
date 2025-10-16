@@ -12,6 +12,14 @@ export default function Home() {
   const { heroRef, howItWorksRef, leaderboardRef } = useGSAPAnimations();
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+      {/* Floating Dithercore Elements */}
+      <div className="dither-element dither-element-1"></div>
+      <div className="dither-element dither-element-2"></div>
+      <div className="dither-element dither-element-3"></div>
+      <div className="dither-element dither-element-4"></div>
+      <div className="dither-element dither-element-5"></div>
+      <div className="dither-element dither-element-6"></div>
+
       <div className="layout-container flex h-full grow flex-col">
         <div className="flex flex-1 justify-center">
           <div className="layout-content-container flex flex-col w-full">
