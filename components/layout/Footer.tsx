@@ -7,51 +7,55 @@ export const Footer: React.FC = () => {
       role="contentinfo"
     >
       <div className="flex items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 bg-white/98 backdrop-blur-md border-2 border-purple-400/80 shadow-2xl rounded-full px-6 py-4 md:px-10 md:py-6 w-full max-w-6xl">
-          <p className="text-text-secondary text-xs md:text-sm font-display">
-            Building the future with miniDev.
-          </p>
-          <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6  border-2 border-[#4285f4] shadow-2xl rounded-[40px] md:rounded-[60px] px-8 py-6 md:px-12 md:py-8 w-full max-w-6xl">
+          {/* Left side - Brand */}
+          <div className="flex flex-col  items-start">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="size-8 md:size-10 text-[#FE6C11]">
+                <svg
+                  fill="currentColor"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"></path>
+                </svg>
+              </div>
+              <h3 className="text-[#FE6C11] text-xl md:text-2xl font-bold font-display">
+                Minidev
+              </h3>
+            </div>
+            <p className="text-[#c084fc] text-sm md:text-base font-display">
+              Vibecode Farcaster Miniapps ✨
+            </p>
+          </div>
+
+          {/* Right side - Links */}
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
             <a
-              className="text-text-secondary hover:text-primary transition-colors"
-              href="#"
-              aria-label="Follow us on X (Twitter)"
+              className="text-[#c084fc] hover:text-white transition-colors text-sm md:text-base font-display"
+              href="https://twitter.com/minidev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Twitter/X"
             >
-              <svg
-                className="h-5 w-5 md:h-6 md:w-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 2.03998C5.38914 2.03998 0 7.42912 0 14.04C0 19.6896 3.96101 24.2377 9.16641 25.5342C9.56102 25.4651 9.92344 25.352 10.2523 25.1953C10.596 25.0298 10.9102 24.8156 11.1895 24.558C11.1895 24.558 11.2336 24.4711 11.2336 24.4711C11.5379 24.1668 11.9325 23.6324 12 23.5C12.0675 23.3676 12.0675 23.1887 12 23C11.9325 22.8113 11.9325 22.6324 12 22.5C12.0675 22.3676 12.2466 22.0469 12.3582 21.8438C12.3582 21.8438 12.4467 21.6547 12.4467 21.6547C12.6703 21.2016 13.0649 20.3547 13.0649 19.9828C13.0649 19.4312 12.5582 18.9672 12.0238 18.9672C11.4895 18.9672 10.6649 19.4312 10.336 20.3828C9.55509 20.1035 8.87891 19.668 8.30977 19.0988C7.74063 18.5297 7.30509 17.8535 7.02579 17.0727C7.42032 16.5984 7.76407 16.1547 7.76407 15.6594C7.76407 15.1641 7.42032 14.7383 7.02579 14.2359C7.30509 13.4551 7.74063 12.7789 8.30977 12.2098C8.87891 11.6406 9.55509 11.2051 10.336 10.9258C10.6649 11.8773 11.4895 12.3414 12.0238 12.3414C12.5582 12.3414 13.0649 11.8773 13.0649 11.3258C13.0649 10.9539 12.6703 10.107 12.4467 9.65391C12.4467 9.65391 12.3582 9.46484 12.3582 9.46484C12.2466 9.26172 12.0675 8.94102 12 8.80859C11.9325 8.67617 11.9325 8.49727 12 8.30859C12.0675 8.12 12.3105 7.63242 12.4467 7.4293C12.4467 7.4293 12.5352 7.24023 12.5352 7.24023C13.2949 5.86953 14.8969 4.31016 17.2098 4.31016C19.5227 4.31016 21.1246 5.86953 21.8844 7.24023L21.9023 7.25742C21.9023 7.25742 22.0195 7.49883 22.0195 7.49883C22.2988 8.02227 22.3871 8.37539 22.3871 8.72852C22.3871 9.08164 22.2988 9.43477 22.0195 9.9582L22.0016 9.99258C22.0016 9.99258 21.566 10.8715 21.566 11.3258C21.566 11.8949 22.0801 12.3414 22.6324 12.3414C23.1848 12.3414 24 11.8949 24 10.9539C24 9.17617 22.7535 7.6082 22.1035 6.64336C20.807 4.70703 18.7363 2.03998 15.6883 2.03998C15.2242 2.03998 12 2.03998 12 2.03998Z"></path>
-              </svg>
+              Twitter/X
             </a>
             <a
-              className="text-text-secondary hover:text-primary transition-colors"
-              href="#"
-              aria-label="Follow us on Facebook"
+              className="flex items-center gap-2 text-[#c084fc] hover:text-white transition-colors text-sm md:text-base font-display"
+              href="https://warpcast.com/minidev"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Try on Farcaster"
             >
+              Try on Farcaster
               <svg
-                className="h-5 w-5 md:h-6 md:w-6"
+                className="w-3 h-3"
                 fill="currentColor"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05S0 3.603 0 8.049c0 4.142 3.268 7.625 7.437 8.048v-5.691H5.232V8.05h2.205V6.267c0-2.189 1.306-3.415 3.32-3.415.945 0 1.903.166 1.903.166v2.21h-1.16c-1.09 0-1.38.648-1.38 1.33v1.63h2.48l-.398 2.34h-2.082V16.1c4.168-.423 7.437-3.906 7.437-8.051z"></path>
-              </svg>
-            </a>
-            <a
-              className="text-text-secondary hover:text-primary transition-colors"
-              href="#"
-              aria-label="Follow us on Twitter"
-            >
-              <svg
-                className="h-5 w-5 md:h-6 md:w-6"
-                fill="currentColor"
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M14.258 3.016c-.4.175-.83.294-1.285.35a2.316 2.316 0 0 0 .985-.772 4.54 4.54 0 0 1-1.424.543 2.28 2.28 0 0 0-1.72-1.834 2.274 2.274 0 0 0-2.422 2.279c0 .22.025.434.073.64a6.466 6.466 0 0 1-4.693-2.38 2.276 2.276 0 0 0 .704 3.038 2.247 2.247 0 0 1-1.028-.284v.03c0 1.08.77 1.98 1.79 2.185a2.284 2.284 0 0 1-1.025.038 2.277 2.277 0 0 0 2.125 1.58 4.568 4.568 0 0 1-2.827.974 4.673 4.673 0 0 1-.543-.032 6.43 6.43 0 0 0 3.48 1.018c4.176 0 6.463-3.458 6.463-6.463 0-.098-.003-.196-.008-.293a4.618 4.618 0 0 0 1.133-1.175z"></path>
+                <path d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                <path d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
               </svg>
             </a>
           </div>
