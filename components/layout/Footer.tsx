@@ -3,22 +3,22 @@ import React from "react";
 export const Footer: React.FC = () => {
   return (
     <footer
-      className="footer py-8 px-4 md:px-10 lg:px-20 xl:px-40"
+      className="footer py-6 md:py-8 px-2 md:px-4 lg:px-10 xl:px-20"
       role="contentinfo"
     >
       <div className="flex items-center justify-center">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-white/98 backdrop-blur-md border-2 border-purple-400/80 shadow-2xl rounded-full px-10 py-6 w-full max-w-6xl">
-          <p className="text-text-secondary text-sm font-display">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 bg-white/98 backdrop-blur-md border-2 border-purple-400/80 shadow-2xl rounded-full px-6 py-4 md:px-10 md:py-6 w-full max-w-6xl">
+          <p className="text-text-secondary text-xs md:text-sm font-display">
             Building the future with miniDev.
           </p>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             <a
               className="text-text-secondary hover:text-primary transition-colors"
               href="#"
               aria-label="Follow us on X (Twitter)"
             >
               <svg
-                className="h-6 w-6"
+                className="h-5 w-5 md:h-6 md:w-6"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               aria-label="Follow us on Facebook"
             >
               <svg
-                className="h-6 w-6"
+                className="h-5 w-5 md:h-6 md:w-6"
                 fill="currentColor"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
               aria-label="Follow us on Twitter"
             >
               <svg
-                className="h-6 w-6"
+                className="h-5 w-5 md:h-6 md:w-6"
                 fill="currentColor"
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"

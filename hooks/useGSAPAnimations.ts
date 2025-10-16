@@ -1,5 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export const useGSAPAnimations = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -12,6 +16,9 @@ export const useGSAPAnimations = () => {
       try {
         // Hero section animations
         if (heroRef.current) {
+          // Reset initial position to ensure proper centering
+          gsap.set(heroRef.current, { yPercent: 0 });
+
           // Animate floating elements
           gsap.to(".hero-float-1", {
             y: -20,
@@ -85,12 +92,18 @@ export const useGSAPAnimations = () => {
             yoyo: true,
           });
 
+          // How It Works content scroll animations
           gsap.from(".how-it-works-content", {
             y: 30,
             opacity: 0,
             duration: 1,
             ease: "power3.out",
-            delay: 1.0,
+            scrollTrigger: {
+              trigger: howItWorksRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
 
           gsap.from(".how-it-works-title", {
@@ -98,7 +111,12 @@ export const useGSAPAnimations = () => {
             opacity: 0,
             duration: 0.8,
             ease: "power3.out",
-            delay: 1.2,
+            scrollTrigger: {
+              trigger: ".how-it-works-title",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
 
           gsap.from(".how-it-works-cards", {
@@ -107,7 +125,12 @@ export const useGSAPAnimations = () => {
             duration: 0.8,
             ease: "power3.out",
             stagger: 0.2,
-            delay: 1.4,
+            scrollTrigger: {
+              trigger: ".how-it-works-cards",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
         }
 
@@ -122,12 +145,18 @@ export const useGSAPAnimations = () => {
             yoyo: true,
           });
 
+          // Leaderboard content scroll animations
           gsap.from(".leaderboard-content", {
             y: 30,
             opacity: 0,
             duration: 1,
             ease: "power3.out",
-            delay: 1.6,
+            scrollTrigger: {
+              trigger: leaderboardRef.current,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
 
           gsap.from(".leaderboard-title", {
@@ -135,7 +164,12 @@ export const useGSAPAnimations = () => {
             opacity: 0,
             duration: 0.8,
             ease: "power3.out",
-            delay: 1.8,
+            scrollTrigger: {
+              trigger: ".leaderboard-title",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
 
           gsap.from(".leaderboard-table", {
@@ -143,7 +177,12 @@ export const useGSAPAnimations = () => {
             opacity: 0,
             duration: 0.8,
             ease: "power3.out",
-            delay: 2.0,
+            scrollTrigger: {
+              trigger: ".leaderboard-table",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
 
           gsap.from(".table-row", {
@@ -152,7 +191,12 @@ export const useGSAPAnimations = () => {
             duration: 0.6,
             ease: "power3.out",
             stagger: 0.1,
-            delay: 2.2,
+            scrollTrigger: {
+              trigger: ".table-row",
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
           });
         }
 
@@ -170,7 +214,12 @@ export const useGSAPAnimations = () => {
           opacity: 0,
           duration: 0.8,
           ease: "power3.out",
-          delay: 2.4,
+          scrollTrigger: {
+            trigger: ".footer",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
         });
       } catch (error) {
         console.log("GSAP animation error:", error);
@@ -179,6 +228,7 @@ export const useGSAPAnimations = () => {
 
     return () => {
       clearTimeout(timer);
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 

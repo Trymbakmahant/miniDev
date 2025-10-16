@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { WalletProvider } from "../contexts/WalletContext";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -81,15 +82,13 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=optional"
-          rel="stylesheet"
-        />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#FE6C11" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${spaceGrotesk.variable} antialiased`}>{children}</body>
+      <body className={`${spaceGrotesk.variable} antialiased`}>
+        <WalletProvider>{children}</WalletProvider>
+      </body>
     </html>
   );
 }

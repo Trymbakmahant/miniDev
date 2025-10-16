@@ -7,6 +7,7 @@ interface AnimatedButtonProps {
   onClick?: () => void;
   className?: string;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 }
 
 export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
@@ -14,6 +15,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   onClick,
   className = "",
   type = "button",
+  disabled = false,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -69,6 +71,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       ref={buttonRef}
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={`transition-colors ${className}`}
     >
       {children}
