@@ -1,6 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# miniDev - Build Viral Miniapps on Farcaster
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) project that showcases a platform for building miniapps on the Farcaster protocol. The application features a modern, animated interface with wallet integration and a leaderboard system.
+
+## 🚀 Features
+
+- **Modern UI/UX**: Beautiful, responsive design with GSAP animations
+- **Wallet Integration**: Connect wallet functionality (demo/placeholder)
+- **Leaderboard**: Dynamic leaderboard with 50 mock entries
+- **Performance Optimized**: Mobile-first design with optimized loading
+- **Word-by-Word Animations**: Scroll-triggered text animations
+
+## 📡 API & Data
+
+### Mock API Implementation
+
+This project uses **Next.js API Routes** for mock data:
+
+- **Leaderboard API**: `/api/leaderboard` - Returns 50 fake leaderboard entries
+- **Mock Data**: Generated dynamically with realistic app names, creators, and metrics
+- **No External Dependencies**: All data is generated server-side using Next.js API routes
+
+### Wallet Connection (Demo Only)
+
+⚠️ **Important**: The wallet connection is **fake/demo only** for showcase purposes:
+
+- **No Real Blockchain Integration**: Wallet connect is simulated
+- **Mock Wallet Address**: Shows placeholder wallet addresses
+- **UI Demonstration**: Designed to showcase the user experience
+- **Not Production Ready**: Do not use for actual wallet connections
+
+## 🛠️ Getting Started
 
 First, run the development server:
 
@@ -18,7 +47,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS with custom animations
+- **Animations**: GSAP with ScrollTrigger
+- **Fonts**: Space Grotesk with system fallbacks
+- **Icons**: Material Symbols (loaded asynchronously)
+- **Performance**: Optimized for mobile with critical CSS inlining
 
 ## Learn More
 
