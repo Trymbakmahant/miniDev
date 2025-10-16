@@ -30,7 +30,7 @@ export const Navbar: React.FC = () => {
           </Link>
           <Link
             href="/leaderboard"
-            className="hidden sm:block text-text-secondary hover:text-primary text-sm font-medium transition-colors ml-4"
+            className="text-text-secondary hover:text-primary text-xs sm:text-sm font-medium transition-colors ml-2 sm:ml-4"
           >
             Leaderboard
           </Link>
