@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { AnimatedButton } from "../ui/AnimatedButton";
+import { useTextAnimations } from "../../hooks/useTextAnimations";
 
 interface LeaderboardProps {
   showViewAll?: boolean;
@@ -23,6 +24,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ limit = 3 }) => {
   const [apps, setApps] = useState<AppData[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
+  const { addTextRef } = useTextAnimations();
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -75,11 +77,15 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ limit = 3 }) => {
           <div className="flex flex-col gap-2 text-center">
             <h2
               id="leaderboard-heading"
+              ref={addTextRef}
               className="leaderboard-title text-text-primary text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-[-0.015em] font-display"
             >
               Leaderboard
             </h2>
-            <p className="text-text-secondary text-base md:text-lg font-normal leading-normal font-display px-4">
+            <p
+              ref={addTextRef}
+              className="text-text-secondary text-base md:text-lg font-normal leading-normal font-display px-4"
+            >
               Discover the most popular miniapps and their creators on
               Farcaster.
             </p>

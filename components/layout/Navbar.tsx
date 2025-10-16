@@ -28,6 +28,12 @@ export const Navbar: React.FC = () => {
           >
             miniDev
           </Link>
+          <Link
+            href="/leaderboard"
+            className="hidden sm:block text-text-secondary hover:text-primary text-sm font-medium transition-colors ml-4"
+          >
+            Leaderboard
+          </Link>
         </div>
         {isWalletConnected ? (
           <div className="flex items-center gap-1 md:gap-2 min-w-0">

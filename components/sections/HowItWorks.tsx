@@ -1,6 +1,8 @@
 import React from "react";
+import { useTextAnimations } from "../../hooks/useTextAnimations";
 
 export const HowItWorks: React.FC = () => {
+  const { addTextRef } = useTextAnimations();
   const steps = [
     {
       icon: "edit_note",
@@ -45,11 +47,15 @@ export const HowItWorks: React.FC = () => {
           <div className="flex flex-col gap-3 md:gap-4 text-center">
             <h1
               id="how-it-works-heading"
+              ref={addTextRef}
               className="how-it-works-title text-text-primary tracking-light text-3xl md:text-5xl lg:text-6xl font-bold leading-tight font-display"
             >
               How it Works
             </h1>
-            <p className="text-text-secondary text-base md:text-lg font-normal leading-normal max-w-2xl mx-auto font-display px-4">
+            <p
+              ref={addTextRef}
+              className="text-text-secondary text-base md:text-lg font-normal leading-normal max-w-2xl mx-auto font-display px-4"
+            >
               Building your miniapp is a simple, three-step process designed to
               be intuitive and fast.
             </p>
@@ -58,7 +64,7 @@ export const HowItWorks: React.FC = () => {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center gap-3 md:gap-4 rounded-[25px] md:rounded-[50px] border border-gray-200 bg-white/50 backdrop-blur-sm p-4 md:p-8"
+                className="how-it-works-card step-card flex flex-col items-center text-center gap-3 md:gap-4 rounded-[25px] md:rounded-[50px] border border-gray-200 bg-white/50 backdrop-blur-sm p-4 md:p-8"
               >
                 <div className="text-primary bg-primary/10 p-3 md:p-4 rounded-[15px] md:rounded-[25px]">
                   <span className="material-symbols-outlined !text-3xl md:!text-4xl">

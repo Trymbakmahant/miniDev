@@ -132,6 +132,20 @@ export const useGSAPAnimations = () => {
               toggleActions: "play none none reverse",
             },
           });
+
+          // Animate step cards individually
+          gsap.from(".step-card", {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            ease: "back.out(1.7)",
+            stagger: 0.2,
+            scrollTrigger: {
+              trigger: ".how-it-works-cards",
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          });
         }
 
         // Leaderboard section animations

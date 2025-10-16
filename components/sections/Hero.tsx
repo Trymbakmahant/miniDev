@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import { AnimatedButton } from "../ui/AnimatedButton";
 import { useWallet } from "../../contexts/WalletContext";
+import { useTextAnimations } from "../../hooks/useTextAnimations";
 
 interface HeroProps {
   onIdeaClick?: (idea: string) => void;
@@ -14,6 +15,7 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
   const [error, setError] = useState("");
   const [isBuilding, setIsBuilding] = useState(false);
   const [buildProgress, setBuildProgress] = useState(0);
+  const { addTextRef } = useTextAnimations();
   const {
     isWalletConnected,
     walletAddress,
@@ -105,11 +107,15 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
           <div className="text-center flex flex-col gap-3 md:gap-4 px-2 md:px-4">
             <h1
               id="hero-heading"
+              ref={addTextRef}
               className="hero-title text-text-primary text-3xl md:text-5xl lg:text-7xl font-black leading-tight tracking-[-0.033em] font-display"
             >
               Build Miniapps with miniDev in Seconds.
             </h1>
-            <h2 className="hero-subtitle text-text-secondary text-base md:text-lg lg:text-xl font-normal leading-normal font-display max-w-2xl mx-auto">
+            <h2
+              ref={addTextRef}
+              className="hero-subtitle text-text-secondary text-base md:text-lg lg:text-xl font-normal leading-normal font-display max-w-2xl mx-auto"
+            >
               Turn your ideas into interactive experiences directly on the
               Farcaster protocol.
             </h2>
@@ -120,9 +126,9 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
                 className="flex flex-col gap-2 max-w-[480px] mx-auto"
                 onSubmit={handleFormSubmit}
               >
-                <div className="flex items-center w-full rounded-xl border border-gray-300 bg-white h-12 md:h-14 focus-within:ring-2 focus-within:ring-secondary focus-within:border-secondary">
+                <div className="flex items-center w-full    bg-white h-12 md:h-14 focus-within:ring-2 focus-within:ring-secondary focus-within:border-secondary">
                   <input
-                    className="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-xl text-text-primary focus:outline-0 border-0 h-full placeholder:text-gray-400 px-3 md:px-[15px] text-sm md:text-base font-normal leading-normal font-display"
+                    className="form-input flex w-full min-w-0 flex-1 border-gray-300 border-r-0 resize-none overflow-hidden rounded-l-xl text-text-primary focus:outline-0 border h-full placeholder:text-gray-400 px-3 md:px-[15px] text-sm md:text-base font-normal leading-normal font-display"
                     placeholder="e.g., A poll for my followers"
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
@@ -219,8 +225,7 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
           </div>
         </div>
       </div>
-
-      {/* Flash icon in background */}
+      {/* Flash icon in background
       <div className="absolute bottom-[-100px] right-[-100px] md:bottom-[-100px] md:right-[-100px] z-0 w-[600px] h-[600px]">
         <Image
           src="/flash.png"
@@ -228,7 +233,7 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
           fill
           className="opacity-20 hover:opacity-30 transition-opacity"
         />
-      </div>
+      </div> */}
     </section>
   );
 };
