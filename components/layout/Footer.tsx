@@ -32,8 +32,8 @@ export const Footer: React.FC = () => {
           {/* Right side - Links */}
           <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
             <a
-              className="text-[#c084fc] hover:text-white transition-colors text-sm md:text-base font-display"
-              href="https://twitter.com/minidev"
+              className="text-[#c084fc] hover:text-black transition-colors text-sm md:text-base font-display"
+              href="https://x.com/minidev"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow us on Twitter/X"
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
               Twitter/X
             </a>
             <a
-              className="flex items-center gap-2 text-[#c084fc] hover:text-white transition-colors text-sm md:text-base font-display"
+              className="flex items-center gap-2 text-[#c084fc] hover:text-black transition-colors text-sm md:text-base font-display"
               href="https://warpcast.com/minidev"
               target="_blank"
               rel="noopener noreferrer"

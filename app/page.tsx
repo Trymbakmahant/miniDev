@@ -11,8 +11,7 @@ import { useGSAPAnimations } from "../hooks/useGSAPAnimations";
 export default function Home() {
   const { heroRef, howItWorksRef, leaderboardRef } = useGSAPAnimations();
   return (
-    <>
-      <div className="relative w-full overflow-x-hidden"> </div>
+    <div className=" w-screen  overflow-x-hidden">
       {/* Floating Dithercore Elements */}
       <div className="dither-element dither-element-1"></div>
       <div className="dither-element dither-element-2"></div>
@@ -28,7 +27,7 @@ export default function Home() {
         Skip to main content
       </a>
       <Navbar />
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" className="">
         <div ref={heroRef} className="h-screen">
           <Hero />
         </div>
@@ -56,6 +55,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -3,7 +3,7 @@ import { Navbar } from "../../components/layout/Navbar";
 import { Footer } from "../../components/layout/Footer";
 import { Leaderboard } from "../../components/sections/Leaderboard";
 
-export default function RankingsPage() {
+export default function LeaderboardPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />

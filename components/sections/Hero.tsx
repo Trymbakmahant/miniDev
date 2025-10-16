@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { AnimatedButton } from "../ui/AnimatedButton";
 import { useWallet } from "../../contexts/WalletContext";
 
@@ -83,11 +84,11 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
 
   return (
     <section
-      className=" flex  flex-col  h-screen  items-center justify-center px-4 "
+      className="flex flex-col min-h-screen items-center justify-center px-4 py-16 md:py-8"
       aria-labelledby="hero-heading"
     >
       {/* Pill Container */}
-      <div className=" bg-white/98 backdrop-blur-md  border-2 border-primary/80 shadow-2xl rounded-[40px] md:rounded-[80px] p-6 md:p-16 w-full max-w-6xl mx-2 md:mx-4">
+      <div className="bg-white/98 backdrop-blur-md border-2 border-primary/80 shadow-2xl rounded-[40px] md:rounded-[80px] p-8 md:p-16 w-full max-w-6xl mx-2 md:mx-4 my-8 md:my-4">
         <div className="absolute top-3 left-4 md:top-6 md:left-10 text-primary font-mono text-xs md:text-sm tracking-wider font-bold">
           &gt; INITIALIZING MINIDEV...
         </div>
@@ -217,6 +218,16 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Flash icon in background */}
+      <div className="absolute bottom-[-100px] right-[-100px] md:bottom-[-100px] md:right-[-100px] z-0 w-[600px] h-[600px]">
+        <Image
+          src="/flash.png"
+          alt="Flash"
+          fill
+          className="opacity-20 hover:opacity-30 transition-opacity"
+        />
       </div>
     </section>
   );
