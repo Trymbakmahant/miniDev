@@ -27,6 +27,32 @@ export const HowItWorks: React.FC = () => {
       className="relative flex flex-col items-center justify-center h-screen px-4 md:px-10 lg:px-20 xl:px-40 overflow-hidden"
       aria-labelledby="how-it-works-heading"
     >
+      {/* Dithercore Background */}
+      <div className="absolute inset-0 bg-white/95 mx-8 my-16 border-2 border-purple-400/70 shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-100/30 via-pink-100/30 to-cyan-100/30"></div>
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+            linear-gradient(90deg, transparent 25%, rgba(128,0,255,0.1) 25%, rgba(128,0,255,0.1) 50%, transparent 50%, transparent 75%, rgba(128,0,255,0.1) 75%),
+            linear-gradient(0deg, transparent 25%, rgba(255,0,128,0.1) 25%, rgba(255,0,128,0.1) 50%, transparent 50%, transparent 75%, rgba(255,0,128,0.1) 75%)
+          `,
+            backgroundSize: "15px 15px",
+          }}
+        ></div>
+        <div className="absolute top-4 left-4 text-purple-600 font-mono text-xs tracking-wider font-semibold">
+          &gt; PROCESSING WORKFLOW...
+        </div>
+        <div className="absolute top-4 right-4 text-pink-600 font-mono text-xs tracking-wider font-semibold">
+          AI_GENERATION ✓
+        </div>
+        <div className="absolute bottom-4 left-4 text-cyan-600 font-mono text-xs tracking-wider font-semibold">
+          BUILD_SYSTEM v2.0
+        </div>
+        <div className="absolute bottom-4 right-4 text-green-600 font-mono text-xs tracking-wider font-semibold">
+          DEPLOY_READY ✓
+        </div>
+      </div>
       <div className="how-it-works-float absolute -left-60 top-1/2 -translate-y-1/2 text-primary/10 text-[40rem] leading-none material-symbols-outlined transform -rotate-45">
         integration_instructions
       </div>
@@ -47,9 +73,9 @@ export const HowItWorks: React.FC = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center gap-4 rounded-xl border border-gray-200 bg-white/50 backdrop-blur-sm p-8"
+              className="flex flex-col items-center text-center gap-4 rounded-[50px] border border-gray-200 bg-white/50 backdrop-blur-sm p-8"
             >
-              <div className="text-primary bg-primary/10 p-4 rounded-lg">
+              <div className="text-primary bg-primary/10 p-4 rounded-[25px]">
                 <span className="material-symbols-outlined !text-4xl">
                   {step.icon}
                 </span>

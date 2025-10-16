@@ -63,6 +63,32 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ limit = 3 }) => {
       className="relative flex flex-col items-center justify-center h-screen px-4 md:px-10 lg:px-20 xl:px-40 overflow-hidden"
       aria-labelledby="leaderboard-heading"
     >
+      {/* Dithercore Background */}
+      <div className="absolute inset-0 bg-white/95 mx-8 my-16 border-2 border-pink-400/70 shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-100/30 via-cyan-100/30 to-purple-100/30"></div>
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+            linear-gradient(30deg, transparent 25%, rgba(255,0,255,0.1) 25%, rgba(255,0,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,0,255,0.1) 75%),
+            linear-gradient(-30deg, transparent 25%, rgba(0,255,255,0.1) 25%, rgba(0,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(0,255,255,0.1) 75%)
+          `,
+            backgroundSize: "25px 25px",
+          }}
+        ></div>
+        <div className="absolute top-4 left-4 text-pink-600 font-mono text-xs tracking-wider font-semibold">
+          &gt; SCANNING LEADERBOARD...
+        </div>
+        <div className="absolute top-4 right-4 text-cyan-600 font-mono text-xs tracking-wider font-semibold">
+          DATA_SYNC ✓
+        </div>
+        <div className="absolute bottom-4 left-4 text-purple-600 font-mono text-xs tracking-wider font-semibold">
+          RANKING_ENGINE v2.0
+        </div>
+        <div className="absolute bottom-4 right-4 text-green-600 font-mono text-xs tracking-wider font-semibold">
+          LIVE_UPDATE ✓
+        </div>
+      </div>
       <div className="leaderboard-float absolute -right-60 top-1/2 -translate-y-1/2 text-secondary/10 text-[40rem] leading-none material-symbols-outlined transform rotate-45">
         leaderboard
       </div>
@@ -78,7 +104,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({ limit = 3 }) => {
             Discover the most popular miniapps and their creators on Farcaster.
           </p>
         </div>
-        <div className="leaderboard-table border border-gray-200 rounded-lg bg-white/50 backdrop-blur-sm">
+        <div className="leaderboard-table border border-gray-200 rounded-[50px] bg-white/50 backdrop-blur-sm overflow-hidden">
           <div className="flex border-b border-gray-200">
             <button
               className={`px-4 py-2 text-sm font-medium border-b-2 ${

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AnimatedButton } from "../ui/AnimatedButton";
+import Image from "next/image";
 
 interface HeroProps {
   onIdeaClick?: (idea: string) => void;
@@ -40,15 +41,44 @@ export const Hero: React.FC<HeroProps> = ({ onIdeaClick }) => {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-center h-screen px-4 overflow-hidden"
+      className="relative flex bg-background-light flex-col items-center justify-center h-screen px-4 overflow-hidden"
       aria-labelledby="hero-heading"
     >
+      {/* Dithercore Background */}
+      <div className="absolute inset-0 bg-white/95 mx-8 my-16 border-2 border-cyan-400/70 shadow-lg">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/30 via-purple-100/30 to-pink-100/30"></div>
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `
+            linear-gradient(45deg, transparent 25%, rgba(0,255,255,0.1) 25%, rgba(0,255,255,0.1) 50%, transparent 50%, transparent 75%, rgba(0,255,255,0.1) 75%),
+            linear-gradient(-45deg, transparent 25%, rgba(255,0,255,0.1) 25%, rgba(255,0,255,0.1) 50%, transparent 50%, transparent 75%, rgba(255,0,255,0.1) 75%)
+          `,
+            backgroundSize: "20px 20px",
+          }}
+        ></div>
+        <div className="absolute top-4 left-4 text-cyan-600 font-mono text-xs tracking-wider font-semibold">
+          &gt; INITIALIZING MINIDEV...
+        </div>
+        <div className="absolute top-4 right-4 text-pink-600 font-mono text-xs tracking-wider font-semibold">
+          AI_READY ✓
+        </div>
+        <div className="absolute bottom-4 left-4 text-purple-600 font-mono text-xs tracking-wider font-semibold">
+          MINIAPP_BUILDER v2.0
+        </div>
+        <div className="absolute bottom-4 right-4 text-green-600 font-mono text-xs tracking-wider font-semibold">
+          FARCASTER_PROTOCOL ✓
+        </div>
+      </div>
       <div className="hero-float-1 absolute -left-32 -top-20 text-primary/10 text-[30rem] leading-none material-symbols-outlined transform -rotate-12">
         token
       </div>
       <div className="hero-float-2 absolute -right-40 bottom-0 text-secondary/10 text-[25rem] leading-none material-symbols-outlined transform rotate-12">
         apps
       </div>
+      {/* <div className="absolute  transform  right-[-150px] bottom-[-150px] opacity-20">
+        <Image width={700} height={900} src="/flash.svg" alt="Flash icon" />
+      </div> */}
       <div className="hero-content z-10 flex flex-col gap-6 w-full max-w-[960px]">
         <div className="text-center flex flex-col gap-4 px-4">
           <h1
