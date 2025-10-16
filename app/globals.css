@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap");
 @import "tailwindcss";
 
+/* Critical CSS - Above the fold styles */
+@layer base {
+  html {
+    font-display: swap;
+  }
+
+  body {
+    font-display: swap;
+  }
+}
+
 :root {
   --background: #f7fafc;
   --foreground: #1a202c;

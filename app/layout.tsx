@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { WalletProvider } from "../contexts/WalletContext";
+import { PerformanceMonitor } from "../components/PerformanceMonitor";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -9,6 +10,7 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
   preload: true,
   weight: ["400", "500", "700"],
+  fallback: ["system-ui", "arial"],
 });
 
 export const metadata: Metadata = {
@@ -82,11 +84,20 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="preconnect" href="https://api.dicebear.com" />
+        <link rel="dns-prefetch" href="https://api.dicebear.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#FE6C11" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="preload"
+          href="/api/leaderboard"
+          as="fetch"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className={`${spaceGrotesk.variable} antialiased`}>
+        <PerformanceMonitor />
         <WalletProvider>{children}</WalletProvider>
       </body>
     </html>
